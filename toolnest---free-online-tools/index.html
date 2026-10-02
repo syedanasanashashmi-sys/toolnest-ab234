@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToolNest – Free Online Tools | Fast, Private &amp; Easy</title>
+    <meta name="description" content="Fast, simple and privacy-friendly online tools that work directly in your browser. Compress images, format JSON, count words, calculate dates, generate QR codes, and more." />
+    <meta name="keywords" content="free online tools, word counter, image compressor, qr code generator, age calculator, json formatter, base64 encoder, case converter, client side tools" />
+    <meta name="author" content="ToolNest" />
+    <meta name="theme-color" content="#2563eb" />
+    
+    <!-- PWA & Mobile Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="ToolNest" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ToolNest" />
+    <meta property="og:title" content="ToolNest – Free Online Tools | Fast, Private &amp; Easy" />
+    <meta property="og:description" content="Fast, simple and privacy-friendly online tools that work directly in your browser. No registration required." />
+    <meta property="og:url" content="https://toolnest.netlify.app/" />
+    <meta property="og:image" content="/icon-512.svg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ToolNest – Free Online Tools | Fast, Private &amp; Easy" />
+    <meta name="twitter:description" content="Fast, simple and privacy-friendly online tools that work directly in your browser. No files uploaded." />
+    <meta name="twitter:image" content="/icon-512.svg" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://toolnest.netlify.app/#website",
+          "url": "https://toolnest.netlify.app/",
+          "name": "ToolNest",
+          "description": "Free online tools for text, images, calculations, and developer utilities.",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://toolnest.netlify.app/tools?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://toolnest.netlify.app/#app",
+          "name": "ToolNest Tools Suite",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript. Requires HTML5.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased selection:bg-blue-500 selection:text-white transition-colors duration-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Register Service Worker for offline PWA support
+      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js').catch((err) => {
+            console.log('SW registration skipped:', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
+
